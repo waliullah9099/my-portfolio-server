@@ -29,6 +29,7 @@ async function run() {
     const skillsCollection = db.collection("skills");
     const backendSkillsCollection = db.collection("backend_skills");
     const projectsCollection = db.collection("projects");
+    const educationsCollection = db.collection("educations");
 
     myPath.get("/services", async (req, res) => {
       const result = await servicesCollection.find().toArray();
@@ -44,6 +45,10 @@ async function run() {
     });
     myPath.get("/projects", async (req, res) => {
       const result = await projectsCollection.find().toArray();
+      res.send(result);
+    });
+    myPath.get("/educations", async (req, res) => {
+      const result = await educationsCollection.find().toArray();
       res.send(result);
     });
 
